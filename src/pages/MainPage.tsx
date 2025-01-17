@@ -3,8 +3,15 @@ import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
 import MongguImg from '../assets/monggu.png';
+import { useNavigate } from 'react-router-dom';
 
 function MainPage(): React.ReactElement {
+  const navigate = useNavigate();
+
+  const handleClickButton = () => {
+    navigate('/question');
+  };
+
   return (
     <>
       <Wrapper>
@@ -15,7 +22,9 @@ function MainPage(): React.ReactElement {
         </LogoImg>
         <Desc>MBTI를 기반으로 하는 나랑 잘 맞는 고양이 찾기!</Desc>
         <Desc>내가 집사가 되서 고양이를 키운다면?</Desc>
-        <Button className="btn-danger">테스트 시작하기</Button>
+        <Button className="btn-danger" onClick={handleClickButton}>
+          테스트 시작하기
+        </Button>
       </Wrapper>
     </>
   );
